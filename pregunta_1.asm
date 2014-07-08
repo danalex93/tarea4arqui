@@ -17,8 +17,8 @@ main:
 	move $s3, $v0
 
 	#Initialise:
-	li $s0, 0 #f1
-	li $s1, 1 #f2
+	li $s0, 0 #f0
+	li $s1, 1 #f1
 	j fib
 
 fib:
@@ -29,7 +29,7 @@ continue:
 	move $t0, $s1
 	add $s1, $s1, $s0
 	move $s0, $t0
-	sub $s3, 1
+	sub $s3, $s3, 1
 	j fib
 
 exit:
@@ -38,5 +38,6 @@ exit:
 	move $a0, $s1
 	syscall
 
+	#Exit program:
 	li $v0, 10
 	syscall
